@@ -1,62 +1,65 @@
-{% extends "base.html" %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}登录{% endblock %}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        a {
+            display: block;
+            text-align: center;
+        }
 
-{% block title %}首页{% endblock %}
+        .list-group {
+            padding: 0;
+        }
 
-{% block css %}
-<style>
-    a {
-        display: block;
-        text-align: center;
-    }
+        th, td {
+            text-align: center;
+        }
 
-    .list-group {
-        padding: 0;
-    }
+        .required:after {
+            content: '*';
+            color: red;
+        }
 
-    th, td {
-        text-align: center;
-    }
+        #dialog {
+            display: none;
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px 5px;
+            background: #fff;
+            color: #f00;
+            font-size: 18px;
+            font-weight: bold;
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 10;
+        }
 
-    .required:after {
-        content: '*';
-        color: red;
-    }
+        #close:after {
+            content: 'X';
+            color: #333;
+            float: right;
+            position: relative;
+            top: -20px;
+        }
 
-    #dialog {
-        display: none;
-        text-align: center;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 20px 5px;
-        background: #fff;
-        color: #f00;
-        font-size: 18px;
-        font-weight: bold;
-        position: fixed;
-        top: 50px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        z-index: 10;
-    }
-
-    #close:after {
-        content: 'X';
-        color: #333;
-        float: right;
-        position: relative;
-        top: -20px;
-    }
-
-    #close:after:hover {
-        cursor: pointer;
-        background: #f00;
-    }
-</style>
-{% endblock %}
-
-
-{% block content %}
+        #close:after:hover {
+            cursor: pointer;
+            background: #f00;
+        }
+    </style>
+    {% block css %}{% endblock %}
+</head>
+<body>
 
 <div id="dialog" class="col-md-7">
     <span id="close"></span>
@@ -116,14 +119,14 @@
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
                      aria-labelledby="headingOne">
                     <div class="panel-body list-group">
-                        <a href="" class="list-group-item">个人打卡记录</a>
-                        <a href="" class="list-group-item">个人出勤记录</a>
-                        <a href="" class="list-group-item">综合打卡记录</a>
-                        <a href="" class="list-group-item">综合出勤记录</a>
-                        <a href="" class="list-group-item">考勤申请</a>
-                        <a href="" class="list-group-item">考勤审核</a>
-                        <a href="" class="list-group-item">打卡信息录入</a>
-                        <a href="" class="list-group-item">出勤信息修改</a>
+                        <a href="/person/punch" class="list-group-item">个人打卡记录</a>
+                        <a href="/person/attend" class="list-group-item">个人出勤记录</a>
+                        <a href="/all/punch" class="list-group-item">综合打卡记录</a>
+                        <a href="/all/attend" class="list-group-item">综合出勤记录</a>
+                        <a href="/apply/attendance" class="list-group-item">考勤申请</a>
+                        <a href="/verify/attendance" class="list-group-item">考勤审核</a>
+                        <a href="/input/punch" class="list-group-item">打卡信息录入</a>
+                        <a href="/edit/attendance" class="list-group-item">出勤信息修改</a>
                     </div>
                 </div>
             </div>
@@ -152,13 +155,14 @@
 
     <div class="col-md-10 right">
         <ol class="breadcrumb"></ol>
-
+        {% block content%}{% endblock %}
     </div>
 
 </div>
-{% endblock%}
 
-{% block js %}
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
 <script>
     setInterval(function () {
         if ($('#msg').text() === '') {
@@ -188,4 +192,7 @@
         sessionStorage.setItem('left-nav-item', navItem)
     })
 </script>
-{% endblock %}
+
+{% block js %}{% endblock %}
+</body>
+</html>

@@ -31,6 +31,46 @@ $app->post('/login', function ($request, $response, $args) {
 
 });
 
+// 个人打卡记录
+$app->get('/person/punch', function($request, $response, $args){
+    return $this->view->render('person_punch.html', array());
+});
+
+// 个人出勤记录
+$app->get('/person/attend', function($request, $response, $args){
+    return $this->view->render('person_attend.html', array());
+});
+
+// 综合打卡记录
+$app->get('/all/punch', function($request, $response, $args){
+    return $this->view->render('all_punch.html', array());
+});
+
+// 综合出勤记录
+$app->get('/all/attend', function($request, $response, $args){
+    return $this->view->render('all_attend.html', array());
+});
+
+//// 个人打卡记录
+//$app->get('/person/punch', function($request, $response, $args){
+//    return $this->view->render('person_punch.html', array());
+//});
+//
+//// 个人打卡记录
+//$app->get('/person/punch', function($request, $response, $args){
+//    return $this->view->render('person_punch.html', array());
+//});
+//
+//// 个人打卡记录
+//$app->get('/person/punch', function($request, $response, $args){
+//    return $this->view->render('person_punch.html', array());
+//});
+//
+//// 个人打卡记录
+//$app->get('/person/punch', function($request, $response, $args){
+//    return $this->view->render('person_punch.html', array());
+//});
+
 //$app->get('/user', function ($request, $response, $args) {
 //
 ////    return $this->view->render('login.html', array());
