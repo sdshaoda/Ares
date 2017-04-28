@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}登录{% endblock %}
+
+{% block css %}
+<style>
+    .login {
+        padding: 0;
+        border: 1px solid #bbb;
+        border-radius: 10px;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        transform: translate(-50%, 0);
+    }
+    .login-header {
+        height: 60px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 60px;
+        padding: 0 35px;
+        text-align: center;
+    }
+    .login-main {
+        padding: 20px 30px;
+    }
+    img.captcha {
+        height: 35px;
+        width: 100px;
+        border: 1px solid #aaa;
+    }
+
+    #dialog {
+        /*display: none;*/
+        text-align: center;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px 5px;
+        background: #fff;
+        color: #f00;
+        font-size: 18px;
+        font-weight: bold;
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 10;
+    }
+    #close:after {
+        content: 'X';
+        color: #333;
+        float: right;
+        position: relative;
+        top: -20px;
+    }
+    #close:after:hover {
+        cursor: pointer;
+        background: #f00;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div id="dialog" class="col-md-7">
+    <span id="close"></span>
+    <div id="msg">{{ msg }}</div>
+</div>
+
+
+<div class="login col-md-5 col-sm-8 col-xs-12">
+    <div class="login-header bg-primary">Ares</div>
+    <form id="loginForm" class="login-main" method="post" action="/login">
+        <div class="form-group">
+            <label for="username">用户名：</label>
+            <input id="username" class="form-control" placeholder="输入登录名"
+                   value=""
+                   type="text" name="username" required/>
+        </div>
+        <div class="form-group">
+            <label for="password">密码：</label>
+            <input id="password" class="form-control" placeholder="输入密码"
+                   value=""
+                   type="password"
+                   name="password" required/>
+        </div>
+        <!--<div class="form-group">-->
+            <!--<label for="captcha">验证码：</label>-->
+            <!--<img class="captcha" src="" alt="">-->
+            <!--<input type="text" class="form-control" id="captcha" name="captcha" placeholder="输入验证码">-->
+        <!--</div>-->
+        <!--<input type="hidden" name="_csrf" value="">-->
+
+        <button type="submit" class="btn btn-primary btn-block">登录</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function () {
+
+        setInterval(function () {
+            if ($('#msg').text() === '') {
+                $('#dialog').slideUp()
+            } else {
+                $('#dialog').slideDown()
+            }
+        }, 1000)
+
+        $('html').click(function () {
+            $('#dialog').slideUp()
+            $('#msg').text('')
+        })
+//        {#刷新验证码#}
+//        function refresh_captcha(event) {
+//            $.get("/captcha/refresh/?" + Math.random(), function (result) {
+//                $('#' + event.data.form_id + ' .captcha').attr("src", result.image_url);
+//                $('#id_captcha_0').attr("value", result.key);
+//            });
+//            return false;
+//        }
+//        {#点击验证码图片刷新#}
+//        $('img.captcha').click({'form_id': 'loginForm'}, refresh_captcha);
+//        {#为验证码添加合适的样式#}
+//        $('input#id_captcha_1').addClass('form-control').attr('placeholder', '点击图片刷新')
+//        if ($('#msg').text() === '') {
+//            $('#dialog').fadeOut()
+//        } else {
+//            $('#dialog').fadeIn()
+//        }
+//        $('#close').click(function () {
+//            $('#dialog').fadeOut()
+//        })
+    })
+</script>
+{% endblock %}

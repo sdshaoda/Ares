@@ -26,7 +26,7 @@ $container['view'] = function ($container) {
 
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
     $twig = new Twig_Environment($loader, array(
-        //        'cache' => __DIR__ . 'compilation_cache',
+        //        'cache' => __DIR__ . '/../compilation_cache',
     ));
 
     return $twig;
@@ -40,16 +40,16 @@ require __DIR__ . '/../src/middleware.php';
 
 require __DIR__ . '/../src/routes.php';
 
-$app->get('/hello/{name}', function ($request, $response, $args) {
-
-
-    return $this->view->render('index.html', array('name' => $args['name']));
-
-//    twig-view
-
+//$app->get('/hello/{name}', function ($request, $response, $args) {
+//
+//
+////    return $this->view->render('index.html', array('name' => $args['name']));
+//
+////    twig-view
+//
 //    return $this->view->render($response, 'index.html', [
 //        'name' => $args['name']
 //    ]);
-})->setName('index');
+//})->setName('index');
 
 $app->run();
