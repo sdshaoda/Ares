@@ -5,7 +5,62 @@
 {% block css %}{% endblock %}
 
 {% block content%}
-content
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <form id="search" method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12"
+              style="border: none;">
+            <div class="input-group">
+                <input type="text" id="keywords" name="keywords" class="form-control" placeholder="搜索部门信息">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">搜索</button>
+                    </span>
+            </div>
+        </form>
+
+        <form method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12" style="border: none;">
+            <div class="input-group">
+                <select class="form-control" name="category" id="category">
+                    <option value="department_id">部门ID</option>
+                </select>
+                <span class="input-group-btn">
+                        <button name="mode" value="positive" class="btn btn-default" type="submit">正序</button>
+                    </span>
+                <span class="input-group-btn">
+                        <button name="mode" value="negative" class="btn btn-default" type="submit">倒序</button>
+                    </span>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>部门名称</th>
+            <th>下属人数</th>
+            <th colspan="2">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for department in departments %}
+        <tr>
+            <td>{{ department.id }}</td>
+            <td>{{ department.name }}</td>
+            <td>{{ department.members }}</td>
+            <td><button class="btn btn-default">重命名</button></td>
+            <td><button class="btn btn-danger">删除</button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-primary btn-block">添加新部门</button>
+
 {% endblock %}
 
 {% block js %}{% endblock %}
