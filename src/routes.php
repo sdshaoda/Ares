@@ -113,6 +113,10 @@ $app->get('/user', function ($request, $response, $args) {
     }
 });
 
+$app->get('/add/user', function ($request, $response, $args){
+    return $this->view->render('add_user.html', array());
+});
+
 //$app->get('/user', function ($request, $response, $args) {
 //
 ////    return $this->view->render('login.html', array());
