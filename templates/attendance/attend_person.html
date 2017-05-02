@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}个人出勤记录{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content%}
+
+<p class="">本月已出勤：<span></span>天</p>
+<p class="">出勤总时长：<span></span>小时</p>
+<p class="">平均出勤时长：<span></span>小时</p>
+<p class="">迟到：<span></span>天</p>
+<p class="">旷工：<span></span>天</p>
+<p class="">请假：<span></span>天</p>
+<p class="">可修年假：<span></span>天</p>
+<p class="">可调休：<span></span>天</p>
+
+<hr>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>日期</th>
+            <th>出勤状态</th>
+            <th>申请记录</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2017-5-1</td>
+            <td>正常</td>
+            <td>无</td>
+            <td><button class="btn btn-default">考勤申请</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2017-5-2</td>
+            <td>迟到</td>
+            <td><a href="">查看</a></td>
+            <td><a href="" role="button" class="btn btn-default">考勤申请</a></td>
+        </tr>
+        {% for attend in attends %}
+        <tr>
+            <td>{{ attend.id }}</td>
+            <td>{{ attend.status }}</td>
+            <td>{{ attend.username }}</td>
+            <td><button class="btn btn-default">考勤申请</button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block js %}{% endblock %}

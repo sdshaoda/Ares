@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}考勤申请{% endblock %}
+
+{% block css %}
+<style>
+    .apply{
+        display: block!important;
+        margin-bottom: 50px;
+    }
+</style>
+{% endblock %}
+
+{% block content%}
+
+<a href="/apply/leave" role="button" class="btn btn-default col-md-5 col-md-offset-3 col-sm-12 col-xs-12 apply">请假申请</a>
+<a href="" role="button" class="btn btn-default col-md-5 col-md-offset-3 col-sm-12 col-xs-12 apply">加班申请</a>
+<a href="" role="button" class="btn btn-default col-md-5 col-md-offset-3 col-sm-12 col-xs-12 apply">外出办公申请</a>
+<a href="" role="button" class="btn btn-default col-md-5 col-md-offset-3 col-sm-12 col-xs-12 apply">补卡申请</a>
+
+<!--
+<form class="form-horizontal" action="" method="post">
+
+    <div class="form-group">
+        <label for="type" class="col-md-2 col-sm-2 control-label required">申请类型：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="type" name="type" required>
+                <option value="请假申请">请假申请</option>
+                <option value="加班申请">加班申请</option>
+                <option value="外出办公申请">外出办公申请</option>
+                <option value="补卡申请">补卡申请</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="apply_person" class="col-md-2 col-sm-2 control-label required">申请人：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="apply_person" name="apply_person" placeholder="申请人" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="verify_person" class="col-md-2 col-sm-2 control-label required">审批人：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="verify_person" name="verify_person" placeholder="审批人" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="" class="col-md-2 col-sm-2 control-label required">起始时间：</label>
+        <div class="col-md-2 col-sm-5">
+            从
+            <input type="date" class="form-control" id="start_time" name="start_time" required>
+        </div>
+        <div class="col-md-2 col-sm-5">
+            到
+            <input type="date" class="form-control" id="end_time" name="end_time" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="department_id" class="col-md-2 col-sm-2 control-label required">部门：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="department_id" name="department_id">
+                {% for department in departments %}
+                <option value="{{ department.id }}">{{ department.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="job" class="col-md-2 col-sm-2 control-label required">职务：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="job" name="job" placeholder="职务" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="induction_time" class="col-md-2 col-sm-2 control-label required">入职时间：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="date" class="form-control" id="induction_time" name="induction_time"
+                   placeholder="入职时间，格式：2017-04-01"
+                   required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="number" class="col-md-2 col-sm-2 control-label required">人员编号：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="number" name="number" placeholder="人员编号" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="username" class="col-md-2 col-sm-2 control-label required">登录名：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="username" name="username" placeholder="登录名" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="col-md-2 col-sm-2 control-label required">密码：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="password" name="password" placeholder="密码" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password_repeat" class="col-md-2 col-sm-2 control-label required">重复密码：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="password_repeat" name="password_repeat" placeholder="重复密码"
+                   required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="permission" class="col-md-2 col-sm-2 control-label required">系统权限：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="permission" name="permission" required>
+                <option value="系统管理员">系统管理员</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary col-md-7">添加</button>
+
+</form>
+-->
+{% endblock %}
+
+{% block js %}{% endblock %}

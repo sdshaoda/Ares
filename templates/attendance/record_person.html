@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}个人打卡记录{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content%}
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <form id="search" method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12"
+              style="border: none;">
+            <div class="input-group">
+                <input type="text" id="keywords" name="keywords" class="form-control" placeholder="搜索考勤记录">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">搜索</button>
+                    </span>
+            </div>
+        </form>
+
+        <form method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12" style="border: none;">
+            <div class="input-group">
+                <select class="form-control" name="category" id="category">
+                    <option value="department_id">考勤ID</option>
+                </select>
+                <span class="input-group-btn">
+                        <button name="mode" value="positive" class="btn btn-default" type="submit">正序</button>
+                    </span>
+                <span class="input-group-btn">
+                        <button name="mode" value="negative" class="btn btn-default" type="submit">倒序</button>
+                    </span>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>打卡日期</th>
+            <th>上班时间</th>
+            <th>下班时间</th>
+            <th>总时长</th>
+            <th>出勤状态</th>
+            <th>申请记录</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2017-5-2</td>
+            <td>09:50:19</td>
+            <td>22:50:27</td>
+            <td>13:00:00</td>
+            <td>正常</td>
+            <td>无</td>
+            <td><a href="" role="button" class="btn btn-default">考勤申请</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2017-5-2</td>
+            <td>09:50:19</td>
+            <td>22:50:27</td>
+            <td>13:00:00</td>
+            <td>正常</td>
+            <td><a href="">查看</a></td>
+            <td><a href="" role="button" class="btn btn-default">考勤申请</a></td>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.id }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.come_time }}</td>
+            <td>{{ record.leave_time }}</td>
+            <td>{{ record.collect_time }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-primary btn-block">个人考勤信息统计</button>
+
+{% endblock %}
+
+{% block js %}{% endblock %}

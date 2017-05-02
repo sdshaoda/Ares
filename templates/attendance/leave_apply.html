@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}考勤申请{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content%}
+
+<form class="form-horizontal" action="" method="post">
+
+    <div class="form-group">
+        <label for="type" class="col-md-2 col-sm-2 control-label required">申请类型：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="type" name="type" disabled>
+                <option value="请假申请">请假申请</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="apply_person" class="col-md-2 col-sm-2 control-label required">申请人：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="apply_person" name="apply_person" placeholder="申请人" value="邵达" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="verify_person" class="col-md-2 col-sm-2 control-label required">审批人：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="verify_person" name="verify_person">
+                <option value="东哥">东哥</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="start_time" class="col-md-2 col-sm-2 control-label required">开始时间：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="date" class="form-control" id="start_time" name="start_time" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="end_time" class="col-md-2 col-sm-2 control-label required">结束时间：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="date" class="form-control" id="end_time" name="end_time" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="days" class="col-md-2 col-sm-2 control-label required">请假天数：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="number" class="form-control" id="days" name="days" placeholder="请假天数（天）" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="leave_type" class="col-md-2 col-sm-2 control-label required">请假类别：</label>
+        <div class="col-md-5 col-sm-10">
+            <select class="form-control" id="leave_type" name="leave_type">
+                <option value="事假">事假</option>
+                <option value="病假">病假</option>
+                <option value="婚假">婚假</option>
+                <option value="产假">产假</option>
+                <option value="丧假">丧假</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="reason" class="col-md-2 col-sm-2 control-label required">请假原因：</label>
+        <div class="col-md-5 col-sm-10">
+            <input type="text" class="form-control" id="reason" name="reason" placeholder="登录名" required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary col-md-7">提交申请</button>
+
+</form>
+
+{% endblock %}
+
+{% block js %}{% endblock %}

@@ -40,7 +40,7 @@
         }
 
         #dialog {
-            /*display: none;*/
+            display: none;
             text-align: center;
             margin: 0 auto;
             border: 1px solid #ccc;
@@ -75,7 +75,7 @@
 <body>
 
 
-<div id="dialog" class="col-md-7">
+<div id="dialog" class="col-md-5 col-sm-8 col-xs-12">
     <span id="close"></span>
     <div id="msg">{{ msg }}</div>
 </div>
@@ -121,12 +121,13 @@
             } else {
                 $('#dialog').slideDown()
             }
-        }, 1000)
+        }, 100)
 
         $('html').click(function () {
             $('#dialog').slideUp()
             $('#msg').text('')
         })
+
 //        {#刷新验证码#}
 //        function refresh_captcha(event) {
 //            $.get("/captcha/refresh/?" + Math.random(), function (result) {
