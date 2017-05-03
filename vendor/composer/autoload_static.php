@@ -13,7 +13,6 @@ class ComposerStaticInit2cf538702574aeff243c01f0cd354c4b
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Slim\\Views\\' => 11,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -34,13 +33,13 @@ class ComposerStaticInit2cf538702574aeff243c01f0cd354c4b
         array (
             'FastRoute\\' => 10,
         ),
+        'A' => 
+        array (
+            'Ares\\Dao\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Slim\\Views\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/slim/twig-view/src',
-        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -68,6 +67,10 @@ class ComposerStaticInit2cf538702574aeff243c01f0cd354c4b
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Ares\\Dao\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/dao',
         ),
     );
 

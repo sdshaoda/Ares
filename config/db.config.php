@@ -1,13 +1,12 @@
 <?php
 
-$config = array(
-    'host' => '192.168.1.59',
+return array(
+    'host' => 'localhost',
     'port' => '3306',
     'user' => 'root',
     'password' => 'root',
-    'charset' => 'UTF8',
+    'charset' => 'utf8',
     'dbname' => 'ares',
     'writable' => 'Y',
     'debug' => 'Y',
 );
-

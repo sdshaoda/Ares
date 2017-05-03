@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}登录{% endblock %}</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <style>
         a {
             display: block;
@@ -171,37 +171,39 @@
 
 </div>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 
 <script>
-    setInterval(function () {
-        if ($('#msg').text() === '') {
-            $('#dialog').slideUp()
-        } else {
-            $('#dialog').slideDown()
-        }
-    }, 1000)
+    $(document).ready(function(){
+        setInterval(function () {
+            if ($('#msg').text() === '') {
+                $('#dialog').slideUp()
+            } else {
+                $('#dialog').slideDown()
+            }
+        }, 1000);
 
-    $('html').click(function () {
-        $('#dialog').slideUp()
-        $('#msg').text('')
-    })
+        $('html').click(function () {
+            $('#dialog').slideUp();
+            $('#msg').text('')
+        });
 
-    var navHead = sessionStorage.getItem('left-nav-head')
-    var navItem = sessionStorage.getItem('left-nav-item')
+        var navHead = sessionStorage.getItem('left-nav-head');
+        var navItem = sessionStorage.getItem('left-nav-item');
 
-    $('a.left-nav-head:contains(' + navHead + ')').removeClass('collapsed').attr('aria-expanded', 'true')
-    $('a.list-group-item:contains(' + navItem + ')').addClass('active').parents('.panel-collapse').addClass('in')
+        $('a.left-nav-head:contains(' + navHead + ')').removeClass('collapsed').attr('aria-expanded', 'true');
+        $('a.list-group-item:contains(' + navItem + ')').addClass('active').parents('.panel-collapse').addClass('in');
 
-    $('ol.breadcrumb').html('<li>' + navHead + '</li><li class="active">' + navItem + '</li>')
+        $('ol.breadcrumb').html('<li>' + navHead + '</li><li class="active">' + navItem + '</li>');
 
-    $('a.list-group-item').click(function () {
-        var navHead = $(this).closest('.panel-collapse').prev().children().children().text().trim()
-        sessionStorage.setItem('left-nav-head', navHead)
-        var navItem = $(this).text().trim()
-        sessionStorage.setItem('left-nav-item', navItem)
-    })
+        $('a.list-group-item').click(function () {
+            var navHead = $(this).closest('.panel-collapse').prev().children().children().text().trim();
+            sessionStorage.setItem('left-nav-head', navHead);
+            var navItem = $(this).text().trim();
+            sessionStorage.setItem('left-nav-item', navItem)
+        })
+    });
 </script>
 
 {% block js %}{% endblock %}

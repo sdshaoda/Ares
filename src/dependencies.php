@@ -3,15 +3,12 @@
 $container = $app->getContainer();
 
 $container['view'] = function ($container) {
-
-//  twig写法
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
     $twig = new Twig_Environment($loader, array(
-        //        'cache' => __DIR__ . '/../cache',
+//        暂不开启缓存
+//        'cache' => __DIR__ . '/../cache',
     ));
-
     return $twig;
-
 };
 
 // monolog
