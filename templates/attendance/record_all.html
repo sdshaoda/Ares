@@ -9,10 +9,20 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
 
-        <form id="search" method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12"
+        <form method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12"
               style="border: none;">
             <div class="input-group">
-                <input type="text" id="keywords" name="keywords" class="form-control" placeholder="搜索考勤记录">
+                <input type="text" name="staff" class="form-control" placeholder="搜索员工姓名">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">搜索</button>
+                    </span>
+            </div>
+        </form>
+
+        <form method="get" class="navbar-form navbar-left col-md-6 col-sm-6 col-xs-12"
+              style="border: none;">
+            <div class="input-group">
+                <input type="text" name="date" class="form-control" placeholder="搜索日期记录">
                 <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">搜索</button>
                     </span>
@@ -41,10 +51,10 @@
         <tr>
             <th>#</th>
             <th>姓名</th>
-            <th>打卡日期</th>
-            <th>上班时间</th>
-            <th>下班时间</th>
-            <th>总时长</th>
+            <th>日期</th>
+            <th>签到时间</th>
+            <th>签退时间</th>
+            <th>出勤时长</th>
             <th>出勤状态</th>
             <th>申请记录</th>
             <th>操作</th>

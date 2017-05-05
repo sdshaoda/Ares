@@ -38,9 +38,9 @@ class BaseDao
         $this->dsn = "mysql:host={$this->host};post={$this->port};dbname={$this->dbname};charset={$this->charset}";
 
         // 连接到MySQL
-        try{
+        try {
             $this->dbh = new \PDO($this->dsn, $this->user, $this->password);
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             echo "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
@@ -48,10 +48,12 @@ class BaseDao
 //        if (isset($config['debug']) && ($config['debug'] == 'Y')) {
 //            $this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 //        }
+
+
     }
 
     /**
-     * 析构函数 unset()
+     * 析构函数 unset($obj) 时调用
      * 关闭MySQL连接
      */
     public function __destruct()
@@ -59,11 +61,17 @@ class BaseDao
         $this->dbh = null;
     }
 
+    /**
+     * 单例模式，返回BaseDao对象，所以会被子类重写
+     * @param array $config
+     * @return BaseDao
+     */
     public static function getInstance($config = array())
     {
-        if(empty(self::$instance)){
+        if (empty(self::$instance)) {
             self::$instance = new BaseDao($config);
         }
         return self::$instance;
     }
+
 }

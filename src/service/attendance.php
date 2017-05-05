@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/db.config.php';
+namespace Ares\Service;
 
 class Attendance
 {

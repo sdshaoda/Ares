@@ -51,15 +51,15 @@ class UserDao extends BaseDao
      */
     public function loginCheck($username, $password)
     {
-        $sql = 'SELECT * FROM `userprofile` WHERE `username`=:username AND `password`=:password';
+        $sql = 'SELECT * FROM `user_userprofile` WHERE `username`=:username AND `password`=:password';
         $password = md5($password);
         try {
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
-            if($stmt->execute()){
+            if ($stmt->execute()) {
                 $users = $stmt->fetch(\PDO::FETCH_ASSOC);
-            }else{
+            } else {
                 $users = false;
             }
         } catch (\PDOException $e) {
@@ -78,7 +78,7 @@ class UserDao extends BaseDao
     {
         $sql = 'SELECT d.name AS department_name, u.id, u.username, u.name, u.sex, u.position
 FROM `department` AS d
-INNER JOIN `userprofile` AS u
+INNER JOIN `user_userprofile` AS u
 ON d.id=u.department_id;';
         try {
             $stmt = $this->dbh->query($sql);

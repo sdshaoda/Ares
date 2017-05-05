@@ -35,7 +35,7 @@ class ComposerStaticInit2cf538702574aeff243c01f0cd354c4b
         ),
         'A' => 
         array (
-            'Ares\\Dao\\' => 9,
+            'Ares\\' => 5,
         ),
     );
 
@@ -68,9 +68,9 @@ class ComposerStaticInit2cf538702574aeff243c01f0cd354c4b
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
-        'Ares\\Dao\\' => 
+        'Ares\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/dao',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
